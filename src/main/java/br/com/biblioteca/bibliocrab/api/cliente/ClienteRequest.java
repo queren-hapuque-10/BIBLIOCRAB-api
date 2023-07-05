@@ -2,8 +2,6 @@ package br.com.biblioteca.bibliocrab.api.cliente;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.biblioteca.bibliocrab.modelo.cliente.Cliente;

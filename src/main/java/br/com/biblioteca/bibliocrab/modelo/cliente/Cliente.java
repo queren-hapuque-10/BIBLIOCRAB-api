@@ -24,14 +24,9 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class Cliente {
+public class Cliente{
     
     private static final long serialVersionUID = 6744535953108071602L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   
-    private Long id;
 
     @Column
     private String nome;
