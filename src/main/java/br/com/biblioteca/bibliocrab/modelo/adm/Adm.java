@@ -1,4 +1,4 @@
-package br.com.biblioteca.bibliocrab.modelo.cliente;
+package br.com.biblioteca.bibliocrab.modelo.adm;
 
 import java.time.LocalDate;
 
@@ -19,13 +19,13 @@ import lombok.Setter;
 
 @Entity
 @Component
-@Table(name = "Cliente")
+@Table(name = "Adm")
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cliente{
+public class Adm{
     
     private static final long serialVersionUID = 6744535953108071602L;
 
@@ -53,6 +53,9 @@ public class Cliente{
 
     @Column
     private String email;
+
+    @Column
+    private String matricula;
 
     @Column
     private String senha;

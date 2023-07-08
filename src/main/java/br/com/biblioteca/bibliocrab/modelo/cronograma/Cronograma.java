@@ -1,6 +1,4 @@
-package br.com.biblioteca.bibliocrab.modelo.cliente;
-
-import java.time.LocalDate;
+package br.com.biblioteca.bibliocrab.modelo.cronograma;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,13 +17,13 @@ import lombok.Setter;
 
 @Entity
 @Component
-@Table(name = "Cliente")
+@Table(name = "Cronograma")
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cliente{
+public class Cronograma{
     
     private static final long serialVersionUID = 6744535953108071602L;
 
@@ -34,27 +32,33 @@ public class Cliente{
     private Long id;
 
     @Column
-    private String nome;
+    private String livro;
 
     @Column
-    private LocalDate dataNascimento;
+    private Integer qtdPaginas;
 
     @Column
-    private String celular;
+    private Integer tempo;
 
     @Column
-    private String cpf;
+    private String domingo;
 
     @Column
-    private String rg;
+    private String segunda;
 
     @Column
-    private String endereco;
+    private String terca;
 
     @Column
-    private String email;
+    private String quarta;
 
     @Column
-    private String senha;
+    private String quinta;
+
+    @Column
+    private String sexta;
+
+    @Column
+    private String sabado;
 
 }

@@ -1,4 +1,4 @@
-package br.com.biblioteca.bibliocrab.modelo.cliente;
+package br.com.biblioteca.bibliocrab.modelo.adm;
 
 import java.util.List;
 
@@ -9,22 +9,22 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class ClienteService {
+public class AdmService {
 
     @Autowired
-    private ClienteRepository repository;
+    private AdmRepository repository;
 
     @Transactional
-    public Cliente save(Cliente cliente) {
-        return repository.save(cliente);
+    public Adm save(Adm adm) {
+        return repository.save(adm);
     }
 
-    public Iterable<Cliente> listarTodos() {
+    public Iterable<Adm> listarTodos() {
   
         return repository.findAll();
     }
     
-    public Cliente obterPorID(Long id) {
+    public Adm obterPorID(Long id) {
  
         return repository.findById(id).get();
     }

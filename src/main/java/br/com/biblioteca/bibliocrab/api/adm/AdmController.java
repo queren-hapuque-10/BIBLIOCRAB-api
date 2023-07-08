@@ -1,4 +1,4 @@
-package br.com.biblioteca.bibliocrab.api.cliente;
+package br.com.biblioteca.bibliocrab.api.adm;
 
 import java.util.List;
 
@@ -17,54 +17,54 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.biblioteca.bibliocrab.modelo.cliente.Cliente;
-import br.com.biblioteca.bibliocrab.modelo.cliente.ClienteService;
-
-
+import br.com.biblioteca.bibliocrab.modelo.adm.Adm;
+import br.com.biblioteca.bibliocrab.modelo.adm.AdmService;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/cliente")
-public class ClienteController {
+@RequestMapping("/adm")
+public class AdmController {
     
     @Autowired
-    private ClienteService clienteService;
+    private AdmService admService;
 
    @GetMapping
-   public Iterable<Cliente> listarTodos() {
-       return clienteService.listarTodos();
+   public Iterable<Adm> listarTodos() {
+       return admService.listarTodos();
    }
 
     @PostMapping
-    public Cliente cadastrar(@RequestBody Cliente cliente){
-    return clienteService.save(cliente);
+    public Adm cadastrar(@RequestBody Adm adm){
+    return admService.save(adm);
   }
   
    @GetMapping("/{id}")
-   public Cliente obterPorID(@PathVariable Long id) {
+   public Adm obterPorID(@PathVariable Long id) {
 
-       return clienteService.obterPorID(id);
+       return admService.obterPorID(id);
    }
-   /*@PostMapping
-   public ResponseEntity<Cliente> save(@RequestBody @Valid ClienteRequest request) {
 
-    Cliente cliente = clienteService.save(request.build());
-       return new ResponseEntity<Cliente>(cliente, HttpStatus.CREATED);
+
+   /*@PostMapping
+   public ResponseEntity<Adm> save(@RequestBody @Valid AdmRequest request) {
+
+    Adm adm = admService.save(request.build());
+       return new ResponseEntity<Adm>(adm, HttpStatus.CREATED);
    }
 
 
 
     @PutMapping("/{id}")
-   public ResponseEntity<Cliente> update(@PathVariable("id") Long id, @RequestBody ClienteRequest request) {
+   public ResponseEntity<Adm> update(@PathVariable("id") Long id, @RequestBody AdmRequest request) {
 
-    clienteService.update(id, request.build());
+    admService.update(id, request.build());
        return ResponseEntity.ok().build();
    }
 
    @DeleteMapping("/{id}")
    public ResponseEntity<Void> delete(@PathVariable Long id) {
 
-    clienteService.delete(id);
+    admService.delete(id);
       return ResponseEntity.ok().build();
    }*/
 }
