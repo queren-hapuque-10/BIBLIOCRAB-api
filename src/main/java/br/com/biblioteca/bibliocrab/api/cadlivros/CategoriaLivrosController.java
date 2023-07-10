@@ -16,12 +16,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.biblioteca.bibliocrab.api.livro.LivroController;
 import br.com.biblioteca.bibliocrab.modelo.cadlivros.CategoriaLivros;
 import br.com.biblioteca.bibliocrab.modelo.cadlivros.CategoriaLivrosService;
 
 @RestController
 @RequestMapping("/api/categorialivros")
-public class CategoriaLivrosController extends LivrosController {//nao sei se ta certo o extends
+public class CategoriaLivrosController extends LivroController {//nao sei se ta certo o extends
 
     @Autowired
     private CategoriaLivrosService categoriaLivrosService;
