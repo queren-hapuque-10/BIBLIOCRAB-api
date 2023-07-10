@@ -27,5 +27,31 @@ public class CronogramaService {
         return repository.findById(id).get();
     }
 
+    @Transactional
+   public void update(Long id, Cronograma cronogramaAlterado) {
+
+    Cronograma cronograma = repository.findById(id).get();
+    cronograma.setLivro(cronogramaAlterado.getLivro());
+    cronograma.setDomingo(cronogramaAlterado.getDomingo());
+    cronograma.setSegunda(cronogramaAlterado.getSegunda());
+    cronograma.setTerca(cronogramaAlterado.getTerca());
+    cronograma.setQuarta(cronogramaAlterado.getQuarta());
+    cronograma.setQuinta(cronogramaAlterado.getQuinta());
+    cronograma.setSexta(cronogramaAlterado.getSexta());
+    cronograma.setSabado(cronogramaAlterado.getSabado());
+
+    repository.save(cronograma);
+  }
+  
+  @Transactional
+  public void delete(Long id) {
+
+    Cronograma cronograma = repository.findById(id).get();
+  /*   cronograma.setHabilitado(Boolean.FALSE);
+      super.preencherCamposAuditoria(cronograma);
+*/    
+      repository.delete(cronograma);
+  }
+
 
 }

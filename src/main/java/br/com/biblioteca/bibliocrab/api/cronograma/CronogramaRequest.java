@@ -14,10 +14,6 @@ public class CronogramaRequest {
  
     private String livro;
 
-    private Integer qtdPaginas;
-
-    private Integer tempo;
-
     private String domingo;
 
     private String segunda;
@@ -36,8 +32,6 @@ public class CronogramaRequest {
 
         return Cronograma.builder()
                 .livro(livro)
-                .qtdPaginas(qtdPaginas)
-                .tempo(tempo)
                 .domingo(domingo)
                 .segunda(segunda)
                 .terca(terca)

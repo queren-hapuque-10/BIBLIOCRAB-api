@@ -1,10 +1,13 @@
-package br.com.biblioteca.bibliocrab.modelo.cronograma;
+package br.com.biblioteca.bibliocrab.modelo.livro;
+
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -17,42 +20,40 @@ import lombok.Setter;
 
 @Entity
 @Component
-@Table(name = "Cronograma")
+@Table(name = "Livro")
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cronograma{
+public class Livro{
     
     private static final long serialVersionUID = 6744535953108071602L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+/*
+    @ManyToOne
+    private CategoriaLivro categoria; */
 
     @Column
-    private String livro;
+    private String imagem;
 
     @Column
-    private String domingo;
+    private String titulo;
 
     @Column
-    private String segunda;
+    private String sinopse;
 
     @Column
-    private String terca;
+    private int qtdpag;
 
     @Column
-    private String quarta;
-
+    private String autor;
+    
     @Column
-    private String quinta;
+    private LocalDate lancamento;
 
-    @Column
-    private String sexta;
-
-    @Column
-    private String sabado;
 
 }
