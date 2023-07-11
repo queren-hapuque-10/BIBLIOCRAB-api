@@ -14,7 +14,7 @@ public class ClienteService {
     @Autowired
     private ClienteRepository repository;
 
-    @Transactional
+   // @Transactional
     public Cliente save(Cliente cliente) {
         return repository.save(cliente);
     }

@@ -1,4 +1,4 @@
-package br.com.biblioteca.bibliocrab.api.cadlivros;
+/*package br.com.biblioteca.bibliocrab.api.cadlivros;
 import br.com.biblioteca.bibliocrab.modelo.cadlivros.CategoriaLivros;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,4 +20,4 @@ public class CategoriaLivrosRequest {
             .build();
     }
     
-}
+}*/

@@ -45,6 +45,10 @@ public class ClienteController {
 
        return clienteService.obterPorID(id);
    }
+
+
+   
+   //para indicar ao Spring que um recurso não será enviado ou recebido por meio de uma página da Web
    /*@PostMapping
    public ResponseEntity<Cliente> save(@RequestBody @Valid ClienteRequest request) {
 

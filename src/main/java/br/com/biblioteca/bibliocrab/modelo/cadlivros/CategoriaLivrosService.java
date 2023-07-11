@@ -1,5 +1,5 @@
 package br.com.biblioteca.bibliocrab.modelo.cadlivros;
-
+/* 
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -52,4 +52,4 @@ public class CategoriaLivrosService extends LivrosController {//nao sei se ta ce
         repository.save(categoriaLivros);
     }
 
-}
+}*/

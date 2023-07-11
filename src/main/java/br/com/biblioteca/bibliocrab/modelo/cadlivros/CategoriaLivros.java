@@ -1,4 +1,4 @@
-package br.com.biblioteca.bibliocrab.modelo.cadlivros;
+/*package br.com.biblioteca.bibliocrab.modelo.cadlivros;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,4 +28,4 @@ public class CategoriaLivros extends LivrosController {//nao sei de quem extends
     @Column
     private String genero;
 
-}
+}*/
