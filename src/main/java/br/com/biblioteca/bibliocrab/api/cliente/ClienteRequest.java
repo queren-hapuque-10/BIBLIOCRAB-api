@@ -1,9 +1,15 @@
 package br.com.biblioteca.bibliocrab.api.cliente;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import br.com.biblioteca.bibliocrab.modelo.acesso.Usuario;
 import br.com.biblioteca.bibliocrab.modelo.cliente.Cliente;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +21,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ClienteRequest {
- 
+    
+    @NotBlank(message = "O e-mail é de preenchimento obrigatório")
+    @Email
+    private String email;
+
+    @NotBlank(message = "A senha é de preenchimento obrigatório")
+    private String password;
+    
+    @NotNull(message = "O Nome é de preenchimento obrigatório")
     private String nome;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
@@ -29,9 +43,9 @@ public class ClienteRequest {
 
     private String endereco;
 
-    private String email;
+   /*  private String email; */
 
-    private String senha;
+   /*  private String senha; */
 
     public Cliente build() {
 
@@ -42,9 +56,18 @@ public class ClienteRequest {
                 .cpf(cpf)
                 .rg(rg)
                 .endereco(endereco)
-                .email(email)
-                .senha(senha)
+               /*  .email(email)
+                .senha(senha)*/
                 .build();
+    }
+
+      public Usuario buildUsuario() {
+	
+	return Usuario.builder()
+		.username(email)
+		.password(password)
+		.roles(Arrays.asList(Usuario.ROLE_CLIENTE))
+		.build();
     }
 
 }

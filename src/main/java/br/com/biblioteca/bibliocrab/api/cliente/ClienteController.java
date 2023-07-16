@@ -30,16 +30,25 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-   @GetMapping
-   public Iterable<Cliente> listarTodos() {
+    @GetMapping
+    public Iterable<Cliente> listarTodos() {
        return clienteService.listarTodos();
    }
 
-    @PostMapping
+   /*  @PostMapping
     public Cliente cadastrar(@RequestBody Cliente cliente){
     return clienteService.save(cliente);
-  }
-  
+  }*/
+
+    @PostMapping
+    public ResponseEntity<Cliente> save(@RequestBody @Valid ClienteRequest request) {
+    
+        Cliente clienteNovo = request.build();
+        Cliente cliente = clienteService.save(clienteNovo);
+        return new ResponseEntity<Cliente>(cliente, HttpStatus.CREATED);
+}
+
+
    @GetMapping("/{id}")
    public Cliente obterPorID(@PathVariable Long id) {
 
@@ -47,18 +56,7 @@ public class ClienteController {
    }
 
 
-   
-   //para indicar ao Spring que um recurso não será enviado ou recebido por meio de uma página da Web
-   /*@PostMapping
-   public ResponseEntity<Cliente> save(@RequestBody @Valid ClienteRequest request) {
-
-    Cliente cliente = clienteService.save(request.build());
-       return new ResponseEntity<Cliente>(cliente, HttpStatus.CREATED);
-   }
-
-
-
-    @PutMapping("/{id}")
+   @PutMapping("/{id}")
    public ResponseEntity<Cliente> update(@PathVariable("id") Long id, @RequestBody ClienteRequest request) {
 
     clienteService.update(id, request.build());
@@ -70,5 +68,5 @@ public class ClienteController {
 
     clienteService.delete(id);
       return ResponseEntity.ok().build();
-   }*/
+   }
 }
