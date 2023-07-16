@@ -33,9 +33,9 @@ public class Livro{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-/*
+/* 
     @ManyToOne
-    private CategoriaLivro categoria; */
+    private GeneroLivro genero; */
 
     @Column
     private String imagem;

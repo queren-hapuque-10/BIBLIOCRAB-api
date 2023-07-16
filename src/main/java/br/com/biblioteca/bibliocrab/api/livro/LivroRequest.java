@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class LivroRequest {
 
-  /*  private Long idCategoriaLivro; */ 
+  /* private Long idGenero;  */ 
     
     private String imagem;
 

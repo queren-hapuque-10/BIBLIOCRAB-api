@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.biblioteca.bibliocrab.modelo.livro.Livro;
@@ -28,48 +29,57 @@ public class LivroController {
     @Autowired
     private LivroService livroService;
 
+    /*@Autowired
+    private GeneroLivroService generoLivroService;*/
+
    @GetMapping
    public Iterable<Livro> listarTodos() {
        return livroService.listarTodos();
    }
 
     @PostMapping
-    public Livro cadastrar(@RequestBody Livro livro){
-    return livroService.save(livro);
+    public ResponseEntity<Livro> save(@RequestBody @Valid LivroRequest request){
+        Livro livroNovo = request.build();
+
+       /*  GeneroLivro gl = generoLivroService.obterPorID(request.getIdGenero());
+        livroNovo.setGenero(gl);*/
+
+        Livro livro = livroService.save(livroNovo);
+        return new ResponseEntity<Livro>(livro, HttpStatus.CREATED);
   }
   
+  @PostMapping("/filtrar")
+   public Iterable<Livro> filtrar(
+           @RequestParam(value = "titulo", required = false) String titulo)
+       /*     @RequestParam(value = "idGenero", required = false) Long idGenero)*/ {
+
+       return livroService.filtrar(titulo/* , idGenero*/);
+   }
+
+
    @GetMapping("/{id}")
    public Livro obterPorID(@PathVariable Long id) {
 
        return livroService.obterPorID(id);
    }
 
-   /*Livros livros = request.build();
-   livros.setCategoriaLivros(categoriaLivrosService.obterPorID(request.getIdCategoria()));
-   livrosService.update(id, livros);*/
+  @DeleteMapping("/{id}")
+   public ResponseEntity<Void> delete(@PathVariable Long id) {
 
-
-
-   /*@PostMapping
-   public ResponseEntity<Cliente> save(@RequestBody @Valid ClienteRequest request) {
-
-    Cliente cliente = clienteService.save(request.build());
-       return new ResponseEntity<Cliente>(cliente, HttpStatus.CREATED);
+      livroService.delete(id);
+      return ResponseEntity.ok().build();
    }
-
 
 
     @PutMapping("/{id}")
-   public ResponseEntity<Cliente> update(@PathVariable("id") Long id, @RequestBody ClienteRequest request) {
+   public ResponseEntity<Livro> update(@PathVariable("id") Long id, @RequestBody @Valid LivroRequest request) {
 
-    clienteService.update(id, request.build());
-       return ResponseEntity.ok().build();
+    Livro livro = request.build();
+  /*  livro.setGenero(generoLivroService.obterPorID(request.getIdGenero())); */
+    livroService.update(id, livro);
+
+    return ResponseEntity.ok().build();
    }
 
-   @DeleteMapping("/{id}")
-   public ResponseEntity<Void> delete(@PathVariable Long id) {
-
-    clienteService.delete(id);
-      return ResponseEntity.ok().build();
-   }*/
+ 
 }
