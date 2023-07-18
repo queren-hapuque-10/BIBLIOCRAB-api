@@ -71,20 +71,22 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.DELETE,"/cliente").permitAll()
                 .antMatchers(HttpMethod.PUT,"/cliente").permitAll()
 
-                .antMatchers(HttpMethod.POST,"/livro").permitAll()
-                .antMatchers(HttpMethod.GET,"/livro").permitAll()
-                .antMatchers(HttpMethod.PUT,"/livro").permitAll()
-                .antMatchers(HttpMethod.DELETE,"/livro").permitAll()
+                .antMatchers("/cliente/*").permitAll()
 
-                .antMatchers(HttpMethod.POST,"/adm").permitAll()
-                .antMatchers(HttpMethod.GET,"/adm").permitAll()
-                .antMatchers(HttpMethod.PUT,"/adm").permitAll()
-                .antMatchers(HttpMethod.DELETE,"/adm").permitAll()
+                .antMatchers(HttpMethod.POST,"/livro/").permitAll()
+                .antMatchers(HttpMethod.GET,"/livro/").permitAll()
+                .antMatchers("/livro/*").permitAll()
+                .antMatchers(HttpMethod.PUT,"/livro/").permitAll()
+                .antMatchers(HttpMethod.DELETE,"/livro/").permitAll()
 
-                .antMatchers(HttpMethod.POST,"/cronograma").permitAll()
-                .antMatchers(HttpMethod.GET,"/cronograma").permitAll()
-                .antMatchers(HttpMethod.PUT,"/cronograma").permitAll()
-                .antMatchers(HttpMethod.DELETE,"/cronograma").permitAll()
+                .antMatchers(HttpMethod.POST,"/adm/").permitAll()
+                .antMatchers(HttpMethod.GET,"/adm/").permitAll()
+                .antMatchers(HttpMethod.PUT,"/adm/").permitAll()
+                .antMatchers(HttpMethod.DELETE,"/adm/").permitAll()
+
+                .antMatchers("/adm/*").permitAll()
+
+         
 
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
 

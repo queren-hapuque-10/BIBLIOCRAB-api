@@ -50,7 +50,7 @@ public class ClienteService {
     public void delete(Long id) {
 
     Cliente cliente = repository.findById(id).get();   
-      repository.delete(cliente);
+    repository.delete(cliente);
   }
 
 

@@ -58,6 +58,7 @@ public class ClienteRequest {
                 .endereco(endereco)
                /*  .email(email)
                 .senha(senha)*/
+                .usuario(buildUsuario())
                 .build();
     }
 
